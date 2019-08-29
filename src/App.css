@@ -1,11 +1,196 @@
+html {
+  height: 100%;
+  transition: transform .25s ease-out;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+button {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+a:visited, a:active, a:link {
+  text-decoration: none;
+  color: #282c34;
+}
+a:hover {
+  color: #9B4274;
+}
+
+body {
+  min-height: 100%;
+  background-repeat: no-repeat;
+  font-family: 'Open Sans', sans-serif;
+  background: linear-gradient(to left bottom, #5BA183 -70%,#EBE184 90%);
+}
+body {
+  min-height: 100%;
+  background-repeat: no-repeat;
+  font-family: 'Open Sans', sans-serif;
+  background: linear-gradient(to left bottom, #5BA183 -70%,#EBE184 90%);
+  background-attachment: fixed;
+}
+
 .App {
   text-align: center;
+}
+
+.app-wrapper {
+
+}
+
+.back-grad {
+  height: 100%;
+  width: 100%;
+}
+
+.main {
+  position: absolute;
+  padding-top: 60px;
+  left: 300px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: auto;
+  overflow: visible;
+}
+
+.main-section {
+  max-width: 800px;
+  margin: auto;
 }
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 40vmin;
   pointer-events: none;
+}
+
+.app-wrapper {
+  display: grid;
+
+  grid-template-areas:
+  "header header"
+  "side-bar cont";
+
+  grid-template-rows: 60px 1fr;
+  grid-template-columns: 2fr 10fr;
+  grid-gap: 10px;
+}
+
+.header {
+  grid-area: header;
+  margin: auto;
+  width: fit-content;
+  background-color: rgb(255, 255, 255);
+}
+
+.side-bar {
+  overflow-y: scroll;
+  background-color: #ffffff;
+  border-right: 1px solid #388564 0.5;
+  opacity: 0.9;
+  position: fixed;
+  width: 300px;
+  height: 100%;
+  transition: cubic-bezier(0.39, 0.575, 0.565, 1) ease-in-out;
+}
+
+.side-bar li {
+  margin: 8px;
+}
+
+.sidebar-toggle, .sidebar-toggle:active {
+  z-index: 10;
+  outline: none;
+  position:fixed;
+  bottom: 10px;
+  width: 300px;
+  padding: 0;
+  margin: 0;
+}
+.sidebar-toggle-button {
+margin-left: 10px;
+}
+
+.sidebar-toggle-button > span {
+  background-color: var(--theme-color,#9B4274);
+  display: block;
+  margin-bottom: 4px;
+  width: 16px;
+  height: 2px;
+}
+
+.dropdown-chats {
+  width: 100%;
+  -webkit-appearance: menulist;
+  margin: 0 auto;
+  font-size: 1.5rem;
+  font-weight: 300;
+  text-align: center;
+}
+
+.chats-list {
+  list-style: none;
+  text-align: center;
+  padding: 0px;
+  margin-top: 4px;
+}
+
+.search .input-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.clear-button {
+  width: 36px;
+  text-align: right;
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration { display: none; }
+
+.search input {
+  outline: none;
+  border: none;
+  width: 100%;
+  padding: 0 7px;
+  line-height: 36px;
+  font-size: 14px;
+}
+
+.input-wrap {
+  display: flex;
+  align-items: center;
+}
+
+.clear-button svg {
+  transform: scale(0.5);
+}
+
+.search {
+  margin-bottom: 20px;
+  padding: 6px;
+  border-bottom: 1px solid #eee;
+}
+
+aside>div>ul {
+  margin-bottom: 40px;
+}
+.cont {
+  grid-area: cont;
+  color: #fff;
+  background-color: #868686;
+  opacity: 0.9;
 }
 
 .App-header {

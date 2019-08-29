@@ -1,26 +1,53 @@
 import React from 'react';
-import logo from './logo.svg';
+
 import './App.css';
+import Header from './components/Header';
+import SideMenu from './components/SideMenu';
+import Content from './components/Content';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app-wrapper">
+      <button className="sidebar-toggle show" onClick={sidebarToggler}>
+        <div className="sidebar-toggle-button">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </button>
+      <aside className="side-bar">
+        <SideMenu />
+      </aside>
+      <div className="main">
+      <section className="main-section">
+        <div className="header">
+          <Header />
+        </div>
+        <div className="cont">
+          <Content />
+        </div>
+      </section>
+      </div>
+      <section className="back-grad"></section>
     </div>
   );
+}
+
+const sidebarToggler = (event) => {
+  console.log(event.currentTarget)
+  let bar = document.getElementsByClassName("side-bar");
+  let main = document.getElementsByClassName('main');
+  if(event.currentTarget.classList.contains('show')) {
+    event.currentTarget.classList.remove('show');
+    event.currentTarget.style.width = '30px';
+    main[0].style.left = '0px';
+    bar[0].style.width = '0px';
+  } else {
+    event.currentTarget.style.width = '300px';
+    event.currentTarget.classList.add('show');
+    main[0].style.left = '300px';
+    bar[0].style.width = '300px';
+  }
 }
 
 export default App;
