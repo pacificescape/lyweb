@@ -205,24 +205,36 @@ aside>div>ul {
 
 @media screen and (min-width:768px) {
   body .main {
+    left: 300px;
+  }
+
+  body.close .main {
     left: 0px;
   }
 
-  body.show .main {
-    left: 300px;
+  .side-bar {
+    left: 0px;
+  }
+
+  body.close .side-bar {
+    transform: translateX(-301px);
   }
 }
 
 @media screen and (max-width: 768px) {
+  body .main {
+    left: 0px;
+  }
+
   .side-bar {
     left: -301px;
   }
 
-  body.show .side-bar {
+  body.close .side-bar {
     transform: translateX(301px);
   }
 
-  body.show .main {
+  body.close .main {
     transform: translateX(300px);
   }
 }

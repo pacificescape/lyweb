@@ -8,7 +8,7 @@ import Content from './components/Content';
 function App() {
   return (
     <div className="app-wrapper">
-      <button className="sidebar-toggle show" onClick={sidebarToggler}>
+      <button className="sidebar-toggle" onClick={sidebarToggler}>
         <div className="sidebar-toggle-button">
           <span></span>
           <span></span>
@@ -35,11 +35,11 @@ function App() {
 
 const sidebarToggler = (event) => {
   let bar = document.getElementsByClassName("side-bar")[0];
-  if(document.getElementsByTagName('body')[0].classList.contains('show')) {
-    document.getElementsByTagName('body')[0].classList.remove('show');
+  if(document.getElementsByTagName('body')[0].classList.contains('close')) {
+    document.getElementsByTagName('body')[0].classList.remove('close');
     //bar.style.transform = 'translateX(-301px)';
   } else {
-    document.getElementsByTagName('body')[0].classList.add('show');
+    document.getElementsByTagName('body')[0].classList.add('close');
     //bar.style.transform = 'translateX(0px)';
   }
 }
