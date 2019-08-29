@@ -8,7 +8,7 @@ const SideMenu = () => {
             <div className="search">
                 <div className="input-wrapper">
                     <input type="search" placeholder="Search"></input>
-                    <div className="clear-button show">
+                    <div className="clear-button">
                         <svg width="26" height="24">
                             <circle cx="12" cy="12" r="11" fill="#ccc"></circle>
                             <path stroke="white" strokeWidth="2" d="M8.25,8.25,15.75,15.75"></path>
@@ -107,11 +107,11 @@ const SideMenu = () => {
 
 const showSettings = (event) => {
     console.log(event)
-    if (event.target.classList.contains('show')) {
-        event.target.classList.remove('show');
+    if (event.target.classList.contains('dropped')) {
+        event.target.classList.remove('dropped');
         event.target.nextElementSibling.style.display = 'none';
     } else {
-        event.target.classList.add('show');
+        event.target.classList.add('dropped');
         event.target.nextElementSibling.style.display = 'block';
     }
 }

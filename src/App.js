@@ -34,21 +34,13 @@ function App() {
 }
 
 const sidebarToggler = (event) => {
-  console.log(event.currentTarget)
-  let bar = document.getElementsByClassName("side-bar");
-  let main = document.getElementsByClassName('main');
-  if(event.currentTarget.classList.contains('show')) {
-    event.currentTarget.classList.remove('show');
-    event.currentTarget.style.width = '38px';
-    event.currentTarget.style.transition = 'ease-out .2s';
-    main[0].style.left = '0px';
-    bar[0].style.left = '-301px';
+  let bar = document.getElementsByClassName("side-bar")[0];
+  if(document.getElementsByTagName('body')[0].classList.contains('show')) {
+    document.getElementsByTagName('body')[0].classList.remove('show');
+    //bar.style.transform = 'translateX(-301px)';
   } else {
-    event.currentTarget.style.width = '300px';
-    event.currentTarget.style.transition = 'ease-out 1s';
-    event.currentTarget.classList.add('show');
-    main[0].style.left = '300px';
-    bar[0].style.left = '0px';
+    document.getElementsByTagName('body')[0].classList.add('show');
+    //bar.style.transform = 'translateX(0px)';
   }
 }
 
