@@ -39,14 +39,16 @@ const sidebarToggler = (event) => {
   let main = document.getElementsByClassName('main');
   if(event.currentTarget.classList.contains('show')) {
     event.currentTarget.classList.remove('show');
-    event.currentTarget.style.width = '30px';
+    event.currentTarget.style.width = '38px';
+    event.currentTarget.style.transition = 'ease-out .2s';
     main[0].style.left = '0px';
-    bar[0].style.width = '0px';
+    bar[0].style.left = '-301px';
   } else {
     event.currentTarget.style.width = '300px';
+    event.currentTarget.style.transition = 'ease-out 1s';
     event.currentTarget.classList.add('show');
     main[0].style.left = '300px';
-    bar[0].style.width = '300px';
+    bar[0].style.left = '0px';
   }
 }
 

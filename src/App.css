@@ -29,12 +29,6 @@ body {
   background-repeat: no-repeat;
   font-family: 'Open Sans', sans-serif;
   background: linear-gradient(to left bottom, #5BA183 -70%,#EBE184 90%);
-}
-body {
-  min-height: 100%;
-  background-repeat: no-repeat;
-  font-family: 'Open Sans', sans-serif;
-  background: linear-gradient(to left bottom, #5BA183 -70%,#EBE184 90%);
   background-attachment: fixed;
 }
 
@@ -60,10 +54,12 @@ body {
   bottom: 0;
   width: auto;
   overflow: visible;
+  transition: ease-out .3s;
 }
 
 .main-section {
-  max-width: 800px;
+  width: 95%;
+  max-width: 1000px;
   margin: auto;
 }
 
@@ -73,20 +69,7 @@ body {
   pointer-events: none;
 }
 
-.app-wrapper {
-  display: grid;
-
-  grid-template-areas:
-  "header header"
-  "side-bar cont";
-
-  grid-template-rows: 60px 1fr;
-  grid-template-columns: 2fr 10fr;
-  grid-gap: 10px;
-}
-
 .header {
-  grid-area: header;
   margin: auto;
   width: fit-content;
   background-color: rgb(255, 255, 255);
@@ -95,12 +78,12 @@ body {
 .side-bar {
   overflow-y: scroll;
   background-color: #ffffff;
-  border-right: 1px solid #388564 0.5;
-  opacity: 0.9;
+  border-right: 1px solid rgba(56,133,100,0.6);
   position: fixed;
   width: 300px;
   height: 100%;
-  transition: cubic-bezier(0.39, 0.575, 0.565, 1) ease-in-out;
+  transition: ease-out .3s;
+  left: 0px;
 }
 
 .side-bar li {
@@ -108,16 +91,20 @@ body {
 }
 
 .sidebar-toggle, .sidebar-toggle:active {
+  background-color: hsla(0,0%,100%,.8);
   z-index: 10;
   outline: none;
   position:fixed;
-  bottom: 10px;
+  bottom: 0px;
   width: 300px;
   padding: 0;
   margin: 0;
+  transition: ease-out .3s;
 }
+
 .sidebar-toggle-button {
-margin-left: 10px;
+margin: 10px 0 10px 10px;
+transition: ease-out .3s;
 }
 
 .sidebar-toggle-button > span {
@@ -187,10 +174,10 @@ aside>div>ul {
   margin-bottom: 40px;
 }
 .cont {
-  grid-area: cont;
   color: #fff;
-  background-color: #868686;
-  opacity: 0.9;
+  background-color: #4e4e4e;
+  margin: 20px;
+  padding: 20px;
 }
 
 .App-header {
