@@ -1,0 +1,88 @@
+.sideBar {
+    overflow-y: auto;
+      -webkit-overflow-scrolling:touch;
+    background-color: #ffffff;
+    border-right: 1px solid rgba(56,133,100,0.6);
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    transition: ease-out .3s;
+    z-index: 10;
+  }
+
+  .sideBar li {
+    margin: 8px;
+  }
+
+  .search .inputWrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  .clearButton {
+    width: 36px;
+    text-align: right;
+  }
+
+  .clearButton svg {
+    transform: scale(0.5);
+  }
+
+  .dropdownChats {
+    width: 100%;
+    -webkit-appearance: menulist;
+    margin: 0 auto;
+    font-size: 1.5rem;
+    font-weight: 300;
+    text-align: center;
+  }
+
+  .chatsList {
+    list-style: none;
+    text-align: center;
+    padding: 0px;
+    margin-top: 4px;
+  }
+
+  .search input {
+    outline: none;
+    border: none;
+    width: 100%;
+    padding: 0 7px;
+    line-height: 36px;
+    font-size: 14px;
+  }
+
+  .search {
+    margin: 10px 10px 20px 10px;
+    border-bottom: 1px solid rgba(56,133,100,0.4);
+}
+
+aside>div>ul {
+    margin-bottom: 40px;
+  }
+
+  @media screen and (min-width:768px) {
+     .sideBar {
+      left: 0px;
+    }
+
+    :global(body.close) .sideBar {
+      transform: translateX(-301px);
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .sideBar {
+      left: -301px;
+    }
+
+    :global(body.close) .sideBar {
+      transform: translateX(301px);
+    }
+  }
+
+  .inputWrap {
+    display: flex;
+    align-items: center;
+  }

@@ -1,8 +1,9 @@
 import React from 'react';
 
+
 import './App.css';
 import Header from './components/Header';
-import SideMenu from './components/SideMenu';
+import SideMenu from './components/SideMenu/SideMenu';
 import Content from './components/Content';
 
 function App() {
@@ -15,9 +16,9 @@ function App() {
           <span></span>
         </div>
       </button>
-      <aside className="side-bar">
+      <div>
         <SideMenu />
-      </aside>
+      </div>
       <div className="main">
       <section className="main-section">
         <div className="header">
@@ -33,14 +34,11 @@ function App() {
   );
 }
 
-const sidebarToggler = (event) => {
-  let bar = document.getElementsByClassName("side-bar")[0];
+const sidebarToggler = () => {
   if(document.getElementsByTagName('body')[0].classList.contains('close')) {
     document.getElementsByTagName('body')[0].classList.remove('close');
-    //bar.style.transform = 'translateX(-301px)';
   } else {
     document.getElementsByTagName('body')[0].classList.add('close');
-    //bar.style.transform = 'translateX(0px)';
   }
 }
 
