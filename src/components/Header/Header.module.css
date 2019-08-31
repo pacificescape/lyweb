@@ -1,0 +1,33 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    width: 100%;
+    height: 50px;
+    background-color: aliceblue;
+}
+
+.logo {
+    margin-left: 20px;
+    display: inline-block;
+    line-height: 50px;
+    vertical-align: top;
+}
+
+.user {
+    float: right;
+    height: 50px;
+    margin-right: 20px;
+}
+
+.user span {
+    display: inline-block;
+    line-height: 50px;
+    vertical-align: top;
+}
+
+.ava {
+    margin-top: 2.5px;
+    border-radius: 45px;
+    width: 45px;
+}

@@ -1,10 +1,9 @@
 import React from 'react';
-
+import Header from './components/Header/Header';
 
 import './App.css';
-import Header from './components/Header';
 import SideMenu from './components/SideMenu/SideMenu';
-import Content from './components/Content';
+import Content from './components/Content/Content';
 
 function App() {
   return (
@@ -20,14 +19,12 @@ function App() {
         <SideMenu />
       </div>
       <div className="main">
-      <section className="main-section">
-        <div className="header">
-          <Header />
-        </div>
-        <div className="cont">
-          <Content />
-        </div>
-      </section>
+                <Header />
+        <section className="main-section">
+          <div className="cont">
+            <Content />
+          </div>
+        </section>
       </div>
       <section className="back-grad"></section>
     </div>
@@ -35,7 +32,7 @@ function App() {
 }
 
 const sidebarToggler = () => {
-  if(document.getElementsByTagName('body')[0].classList.contains('close')) {
+  if (document.getElementsByTagName('body')[0].classList.contains('close')) {
     document.getElementsByTagName('body')[0].classList.remove('close');
   } else {
     document.getElementsByTagName('body')[0].classList.add('close');

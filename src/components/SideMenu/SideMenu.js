@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styles from './SideMenu.module.css';
 import '../../App.css';
-
 
 const SideMenu = () => {
     let chatName = 'LyChat';

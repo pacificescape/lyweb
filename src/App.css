@@ -3,6 +3,10 @@ html {
   transition: transform .25s ease-out;
 }
 
+.header {
+  z-index: 0;
+}
+
 ::-webkit-scrollbar {
   display: none;
 }
@@ -45,7 +49,6 @@ body {
 
 .main {
   position: absolute;
-  padding-top: 60px;
   top: 0;
   right: 0;
   bottom: 0;
