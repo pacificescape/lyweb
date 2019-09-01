@@ -15,8 +15,6 @@ const Content = () => {
                 <Route path='/OtherProjects' component={OtherProjects}></Route>
                 <Route path='/' component={Main}></Route>
             </Switch>
-
-
         </div>
     )
 }

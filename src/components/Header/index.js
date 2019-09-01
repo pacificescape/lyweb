@@ -18,6 +18,8 @@ import React, { Component, Fragment } from 'react';
 export default class Header extends Component {
 
     render() {
+        let nickName = this.props.user.first_name || 'unknown user';
+        let avatar = this.props.user.photo_url || ava; //заменить дефолтную аву
         return (
             <div className={styles.header}>
                 <div className={styles.logo}>
@@ -26,8 +28,8 @@ export default class Header extends Component {
                     </span>
                 </div>
                 <div className={styles.user}>
-                        <img alt="avatar" src={ava} className={styles.ava}></img>
-                        <span>Nickname</span>
+                        <img alt="avatar" src={avatar} className={styles.ava}></img>
+                        <span>{nickName}</span>
                 </div>
             </div>
         )

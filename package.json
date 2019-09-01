@@ -1,6 +1,6 @@
 {
   "name": "itcam",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "private": true,
   "dependencies": {
     "autoprefixer": "^9.6.1",
@@ -34,5 +34,6 @@
   },
   "devDependencies": {
     "postcss-loader": "^3.0.0"
-  }
+  },
+  "proxy":"http://localhost:4000"
 }
