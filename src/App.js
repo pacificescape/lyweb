@@ -1,9 +1,8 @@
 import React from 'react';
-import Header from './components/Header/Header';
-
+import Header from './components/Header/';
 import './App.css';
-import SideMenu from './components/SideMenu/SideMenu';
-import Content from './components/Content/Content';
+import SideMenu from './components/SideMenu/';
+import Content from './components/Content/';
 
 function App() {
   return (

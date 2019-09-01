@@ -27,7 +27,7 @@ export default class Header extends Component {
                 </div>
                 <div className={styles.user}>
                         <img alt="avatar" src={ava} className={styles.ava}></img>
-                        <span>Аркаша Одесская ♥</span>
+                        <span>Nickname</span>
                 </div>
             </div>
         )

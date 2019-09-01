@@ -86,3 +86,7 @@ aside ul {
     display: flex;
     align-items: center;
   }
+
+  .dropdownSettings {
+    display: none;
+  }
