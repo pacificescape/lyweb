@@ -1,4 +1,17 @@
+.bananaContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: fill-available;
+    transform: translateY(-120px);
+    transition: 0s;
+}
+
 .banana {
-    margin: auto;
-    width: fit-content;
+    padding: 15px;
+}
+
+.authButton {
+    text-align: center;
 }

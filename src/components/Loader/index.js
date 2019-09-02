@@ -3,13 +3,13 @@ import { Redirect } from 'react-router-dom';
 import styles from './Loader.module.css';
 
 const Loader = () => (
-    <div className="">
+
+    <div className={styles.bananaContainer}>
         <Redirect from="/ew" to="/" />
         <div className={styles.banana}>
-            <img alt='' src='https://media.giphy.com/media/2yzIXo95cy4Y7sGCNM/giphy.gif' width="100" className=''></img>
+            <img alt='ban' src='https://media.giphy.com/media/2yzIXo95cy4Y7sGCNM/giphy.gif' width="100" className=''></img>
         </div>
-        <div id="authButton">
-        </div>
+        <div id="authButton" className={styles.authButton} />
     </div>
 )
 
