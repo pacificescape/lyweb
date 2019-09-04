@@ -9,9 +9,10 @@
 // }
 
 // export default Header;
-import ava from '../../img/ava.jpg' // default avatar
+// import ava from '../../img/ava.jpg' // default avatar
 import styles from './Header.module.css';
 import React, { Component } from 'react';
+import {readCookie} from '../../utils'
 // import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
 // import { Home, Gifs, Greetings, NotFound } from './index'
 
@@ -19,8 +20,8 @@ export default class Header extends Component {
 
     render() {
 
-        let nickName = this.props.readCookie("userName");
-        let avatar = this.props.readCookie("userPhoto")
+        let nickName = readCookie("userName");
+        let avatar = readCookie("userPhoto")
         return (
             <div className={styles.header}>
                 <div className={styles.logo}>

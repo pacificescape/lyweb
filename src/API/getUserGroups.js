@@ -17,6 +17,7 @@ const getUserGroups = () => {
 
                 return { isLoading: false }
             }
+            console.log(res.result)
             return { isLoading: false, isAuth: true, data: res.result }
         })
         .catch(err => {

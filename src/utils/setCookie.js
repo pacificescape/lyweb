@@ -1,4 +1,4 @@
-export default function setCookie(name, value, options) {
+function setCookie(name, value, options) {
     options = options || {};
 
     var expires = options.expires;
@@ -26,3 +26,15 @@ export default function setCookie(name, value, options) {
 
     document.cookie = updatedCookie;
 }
+
+  const readCookie = (name) => {
+    var matches = document.cookie.match(new RegExp(
+      "(?:^|; )" + name.replace(/([.$?*|{}()[\]\\/+^])/g, '\\$1') + "=([^;]*)"
+    ));
+    return matches ? decodeURIComponent(matches[1]) : undefined;
+  }
+
+  export {
+    setCookie,
+    readCookie
+  }

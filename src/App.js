@@ -31,31 +31,6 @@ export default class App extends Component {
     }
   }
 
-  readCookie = (name) => {
-    var matches = document.cookie.match(new RegExp(
-      "(?:^|; )" + name.replace(/([.$?*|{}()[\]\\/+^])/g, '\\$1') + "=([^;]*)"
-    ));
-    return matches ? decodeURIComponent(matches[1]) : undefined;
-  }
-
-  // componentDidMount() {
-  //   if (this.props.url.indexOf('login') !== -1) {
-  //     // let url = this.getUrlData(this.props.url)
-  //     getCookies(this.props.user)
-  //     .then((res) => {
-  //         console.log('cookies: ' + res)
-  //         getUserGroups()                          // лишний запрос чатов без куков...
-  //         .then(res => {
-  //             this.setState(res)
-  //             console.log(res)
-  //         })
-  //     })
-  // } else {
-  //     getUserGroups()
-  //     .then(res => this.setState(res))
-  // }
-  // }
-
   render() {
     //if (this.state.isAuth) return <div>Authentification: {JSON.stringify(this.state.isAuth)}</div>
     if (this.state.isLoading) return <Loader />
@@ -71,10 +46,10 @@ export default class App extends Component {
           </div>
         </button>
         <div>
-          <SideMenu />
+          <SideMenu groups={this.state.data.groups}/>
         </div>
         <div className="main">
-          <Header user={this.props.user} readCookie={this.readCookie}/>
+          <Header user={this.props.user}/>
           <section className="main-section">
             <div className="cont">
               <Content />

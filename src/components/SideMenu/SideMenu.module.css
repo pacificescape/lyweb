@@ -20,6 +20,7 @@
   }
 
   .clearButton {
+    display: none;
     width: 36px;
     text-align: right;
   }
@@ -28,20 +29,52 @@
     transform: scale(0.5);
   }
 
+
   .dropdownChats {
     width: 100%;
-    -webkit-appearance: menulist;
     margin: 0 auto;
     font-size: 1.5rem;
     font-weight: 300;
     text-align: center;
   }
 
+  .dropdownChats div {
+    width: inherit;
+  }
+
+  .dropdownChats:hover + .chatsList {
+    display: block;
+  }
+
   .chatsList {
+    display: none;
+    position: absolute;
+    left: 50px;
+    background-color: #f9f9f9;
+    min-width: 200px;
+    margin: auto;
     list-style: none;
     text-align: center;
     padding: 0px;
-    margin-top: 4px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+
+  }
+
+  .chatsList:hover {
+    display: block;
+  }
+
+  .chatsList a{
+    color: black;
+    padding: 8px 8px;
+    text-decoration: none;
+    display: block;
+    margin: 0px;
+  }
+
+  .chatsList a:hover {
+    background-color: #f1f1f1;
   }
 
   .search input {

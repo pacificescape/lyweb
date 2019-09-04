@@ -12,7 +12,10 @@ export default class SideMenu extends Component {
             styles: styles,
             chatName: "LyChat",
             showSettings: false,
-            search: ''
+            search: '',
+            groups: this.props.groups,
+            currentChat: 'Current Chat',
+
         }
 
         this.inputSearch = this.inputSearch.bind(this)
@@ -22,7 +25,13 @@ export default class SideMenu extends Component {
 
     inputSearch = (event) => {
         this.setState({search: event.target.value})
-        console.log(this.state.search)
+        event.target.value.length > 0 ?
+            document.getElementsByClassName(this.state.styles.clearButton)[0].style.display = 'block' :
+            document.getElementsByClassName(this.state.styles.clearButton)[0].style.display = 'none';
+    }
+
+    renderChatList = () => {
+        return this.state.groups.map((group) => (<NavLink to="test_chat" className={this.state.styles.chatToggle}>{group.title}</NavLink>))
     }
 
     showSettings = () => {
@@ -38,12 +47,14 @@ export default class SideMenu extends Component {
     }
 
     render() {
+        let ChatList = this.renderChatList()
+
         return (
             <aside className={this.state.styles.sideBar}>
                 <div className={this.state.styles.search}>
                     <div className={this.state.styles.inputWrapper}>
                         <input type="search" placeholder="Search" onChange={this.inputSearch} value={this.state.search}></input>
-                        <div className={this.state.styles.clearButton}>
+                        <div className={this.state.styles.clearButton} onClick={() => this.setState({search: ''})}>
                             <svg width="26" height="24">
                                 <circle cx="12" cy="12" r="11" fill="#ccc"></circle>
                                 <path stroke="white" strokeWidth="2" d="M8.25,8.25,15.75,15.75"></path>
@@ -53,15 +64,13 @@ export default class SideMenu extends Component {
                     </div>
                 </div>
                 <div>
-                    <button type="button" className={this.state.styles.dropdownChats}>Chat Name</button>
-                    <ul className={this.state.styles.chatsList}>
-                        <li className={this.state.styles.chatToggle}><a href={'#' + this.state.chatName}>LyChat</a></li>
-                    </ul>
+                    <button type="button" className={this.state.styles.dropdownChats}><div>{this.state.currentChat}</div></button>
+                        <div className={this.state.styles.chatsList}>{ChatList}</div>
                 </div>
                 <ul>
                     <li><NavLink to="/Info">Info</NavLink></li>
                     <li>
-                        <NavLink to="/Settings" className="" onClick={this.showSettings}>Settings</NavLink>
+                        <NavLink to={`${this.state.currentChat}/Settings"`} className="" onClick={this.showSettings}>Settings</NavLink>
                         <ul className={this.state.styles.dropdownSettings} style={{ display: 'none' }}>
                             <li><NavLink to="/Settings/Greetings">Greetings</NavLink></li>
                             <li><NavLink to="/Settings/Gifs">Gifs</NavLink></li>
