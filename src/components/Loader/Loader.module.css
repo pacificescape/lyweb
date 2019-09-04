@@ -3,7 +3,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: fill-available;
+    height: stretch;
     transform: translateY(-120px);
     transition: 0s;
 }

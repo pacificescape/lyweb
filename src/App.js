@@ -8,10 +8,14 @@ import { getCookies, getUserGroups } from './API'
 // http://localhost:3000/login?id=686968130&first_name=Аркаша Одесская 🇸🇴&username=im_the_bot&photo_url=https%3A%2F%2Ft.me%2Fi%2Fuserpic%2F320%2Fim_the_bot.jpg&auth_date=1561386715&hash=474d370a659c2fd9fa4ea87de5ba5a15e642e62ffe63e6076663dae0203a0dc9
 export default class App extends Component {
 
-  state = {
-    isLoading: true,
-    isAuth: false,
-    data: {}
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isLoading: true,
+      isAuth: false,
+      data: {},
+    }
   }
 
   componentDidMount() {
@@ -25,6 +29,13 @@ export default class App extends Component {
       getUserGroups()
         .then(res => this.setState(res))
     }
+  }
+
+  readCookie = (name) => {
+    var matches = document.cookie.match(new RegExp(
+      "(?:^|; )" + name.replace(/([.$?*|{}()[\]\\/+^])/g, '\\$1') + "=([^;]*)"
+    ));
+    return matches ? decodeURIComponent(matches[1]) : undefined;
   }
 
   // componentDidMount() {
@@ -51,7 +62,7 @@ export default class App extends Component {
     if (!this.state.isAuth) return <Loader />
     return (
       <div className="app-wrapper">
-        Authentification: {JSON.stringify(this.state.isAuth)}
+        <span className="statusBar">Authentification: {JSON.stringify(this.state.isAuth)}</span>
         <button className="sidebar-toggle" onClick={sidebarToggler}>
           <div className="sidebar-toggle-button">
             <span></span>
@@ -63,7 +74,7 @@ export default class App extends Component {
           <SideMenu />
         </div>
         <div className="main">
-          <Header user={this.props.user} />
+          <Header user={this.props.user} readCookie={this.readCookie}/>
           <section className="main-section">
             <div className="cont">
               <Content />

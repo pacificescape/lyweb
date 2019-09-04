@@ -20,6 +20,7 @@ if (url.indexOf('login') !== -1) {
 }
 
 
+
 ReactDOM.render(<BrowserRouter><App url={url} user={data}/></BrowserRouter>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

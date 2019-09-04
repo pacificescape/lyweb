@@ -163,3 +163,12 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     transform: translateX(300px);
   }
 }
+
+.statusBar {
+  left: 50%;
+  z-index: 1000;
+  position: fixed;
+  border: 1px solid green;
+  width: 200px;
+  text-align: center;
+  }
