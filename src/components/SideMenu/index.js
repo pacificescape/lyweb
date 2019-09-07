@@ -18,10 +18,16 @@ export default class SideMenu extends Component {
 
         }
 
-        this.inputSearch = this.inputSearch.bind(this)
-        this.showSettings = this.showSettings.bind(this)
+        this.inputSearch = this.inputSearch.bind(this);
+        this.showSettings = this.showSettings.bind(this);
+        this.clearButton = this.clearButton.bind(this);
     }
 
+
+    clearButton = () => {
+        this.setState({search: ''})
+        document.getElementsByClassName(this.state.styles.clearButton)[0].style.display = 'none';
+    }
 
     inputSearch = (event) => {
         this.setState({search: event.target.value})
@@ -54,7 +60,7 @@ export default class SideMenu extends Component {
                 <div className={this.state.styles.search}>
                     <div className={this.state.styles.inputWrapper}>
                         <input type="search" placeholder="Search" onChange={this.inputSearch} value={this.state.search}></input>
-                        <div className={this.state.styles.clearButton} onClick={() => this.setState({search: ''})}>
+                        <div className={this.state.styles.clearButton} onClick={this.clearButton}>
                             <svg width="26" height="24">
                                 <circle cx="12" cy="12" r="11" fill="#ccc"></circle>
                                 <path stroke="white" strokeWidth="2" d="M8.25,8.25,15.75,15.75"></path>
