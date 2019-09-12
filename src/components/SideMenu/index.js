@@ -37,7 +37,14 @@ export default class SideMenu extends Component {
     }
 
     renderChatList = () => {
-        return this.state.groups.map((group) => (<NavLink to="test_chat" className={this.state.styles.chatToggle}>{group.title}</NavLink>))
+        return this.state.groups.map((group, index) =>
+            <NavLink
+                to="test_chat"
+                className={this.state.styles.chatToggle}
+                key={index}>
+                {group.title}
+            </NavLink>
+        );
     }
 
     showSettings = () => {
