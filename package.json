@@ -1,7 +1,11 @@
 {
   "name": "itcam",
-  "version": "0.3.4",
+  "version": "0.3.46",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Lord1Luciani/itcam"
+},
   "dependencies": {
     "autoprefixer": "^9.6.1",
     "eslint": "^6.2.2",
