@@ -8,7 +8,6 @@ class Main extends Component {
         gifs: [
             'CgADAQADJwADjj5JRQ7K3IDKCYJ_FgQ',
             'CgADAQADJwADjj5JRQ7K3IDKCYJ_FgQ',
-            'CgADAQADJwADjj5JRQ7K3IDKCYJ_FgQ',
         ],
         isLoadingGIFs: true,
         isLoading: true
