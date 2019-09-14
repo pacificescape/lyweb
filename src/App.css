@@ -11,6 +11,10 @@ html {
   display: none;
 }
 
+:focus {
+  outline-color: #9B4274;
+}
+
 button {
   display: flex;
   padding: 0;
@@ -34,7 +38,6 @@ body {
   min-height: 100%;
   background-repeat: no-repeat;
   font-family: 'Open Sans', sans-serif;
-  background: linear-gradient(to left bottom, #5BA183 -70%, #F8FFFF 90%);
   background-attachment: fixed;
 }
 
@@ -165,10 +168,10 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 }
 
 .statusBar {
-  left: 50%;
+  left: 25vw;
   z-index: 1000;
   position: fixed;
-  border: 1px solid green;
+  border: 1px solid rgb(117, 0, 128);
   width: 200px;
   text-align: center;
   }

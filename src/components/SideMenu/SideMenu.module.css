@@ -38,6 +38,10 @@
     text-align: center;
   }
 
+  .dropdownChats:focus, .dropdownChats div:focus {
+    outline: none
+  }
+
   .dropdownChats div {
     width: inherit;
   }

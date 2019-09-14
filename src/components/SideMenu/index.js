@@ -14,33 +14,42 @@ export default class SideMenu extends Component {
             showSettings: false,
             search: '',
             groups: this.props.groups,
-            currentChat: 'Current Chat',
-
+            currentTitle: 'Current Chat',
+            currentGroup: {},
+            clearButtonDisplay: 'none'
         }
 
         this.inputSearch = this.inputSearch.bind(this);
         this.showSettings = this.showSettings.bind(this);
         this.clearButton = this.clearButton.bind(this);
+
     }
 
+    clearButtonElement = React.createRef();
+    dropdownSettings = React.createRef();
+
+    componentDidMount() {
+    }
 
     clearButton = () => {
         this.setState({search: ''})
-        document.getElementsByClassName(this.state.styles.clearButton)[0].style.display = 'none';
+        debugger;
+        this.clearButtonElement.current.style.display = 'none';
     }
 
     inputSearch = (event) => {
         this.setState({search: event.target.value})
         event.target.value.length > 0 ?
-            document.getElementsByClassName(this.state.styles.clearButton)[0].style.display = 'block' :
-            document.getElementsByClassName(this.state.styles.clearButton)[0].style.display = 'none';
+            this.clearButtonElement.current.style.display = 'block' :
+            this.clearButtonElement.current.style.display = 'none';
     }
 
     renderChatList = () => {
         return this.state.groups.map((group, index) =>
             <NavLink
-                to="test_chat"
+                to={group.title}
                 className={this.state.styles.chatToggle}
+                onClick={(evt) => {debugger; this.setState({currentGroup: this.props.groups[evt.target]})}}
                 key={index}>
                 {group.title}
             </NavLink>
@@ -50,10 +59,10 @@ export default class SideMenu extends Component {
     showSettings = () => {
         console.log('showSettings is ' + this.state.showSettings)
         if (!this.state.showSettings) {
-            document.getElementsByClassName(this.state.styles.dropdownSettings)[0].style.display = 'block';
+            this.dropdownSettings.current.style.display = 'block';
             this.setState({ showSettings: true })
         } else {
-            document.getElementsByClassName(this.state.styles.dropdownSettings)[0].style.display = 'none';
+            this.dropdownSettings.current.style.display = 'none';
             this.setState({ showSettings: false })
 
         }
@@ -67,7 +76,7 @@ export default class SideMenu extends Component {
                 <div className={this.state.styles.search}>
                     <div className={this.state.styles.inputWrapper}>
                         <input type="search" placeholder="Search" onChange={this.inputSearch} value={this.state.search}></input>
-                        <div className={this.state.styles.clearButton} onClick={this.clearButton}>
+                        <div ref={this.clearButtonElement} className={this.state.styles.clearButton} onClick={this.clearButton}>
                             <svg width="26" height="24">
                                 <circle cx="12" cy="12" r="11" fill="#ccc"></circle>
                                 <path stroke="white" strokeWidth="2" d="M8.25,8.25,15.75,15.75"></path>
@@ -77,17 +86,17 @@ export default class SideMenu extends Component {
                     </div>
                 </div>
                 <div>
-                    <button type="button" className={this.state.styles.dropdownChats}><div>{this.state.currentChat}</div></button>
+                    <button type="button" className={this.state.styles.dropdownChats}><div>{this.state.currentTitle}</div></button>
                         <div className={this.state.styles.chatsList}>{ChatList}</div>
                 </div>
                 <ul>
                     <li><NavLink to="/Info">Info</NavLink></li>
                     <li>
-                        <NavLink to={`${this.state.currentChat}/Settings"`} className="" onClick={this.showSettings}>Settings</NavLink>
-                        <ul className={this.state.styles.dropdownSettings} style={{ display: 'none' }}>
-                            <li><NavLink to="/Settings/Greetings">Greetings</NavLink></li>
-                            <li><NavLink to="/Settings/Gifs">Gifs</NavLink></li>
-                            <li><NavLink to="/Settings/Bananas">Bananas</NavLink></li>
+                        <NavLink to={`${this.state.currentTitle}/Settings`} className="" onClick={this.showSettings}>Settings</NavLink>
+                        <ul ref={this.dropdownSettings} className={this.state.styles.dropdownSettings} style={{ display: 'none' }}>
+                            <li><NavLink to={`${this.state.currentTitle}/Settings/Greetings`}>Greetings</NavLink></li>
+                            <li><NavLink to={`${this.state.currentTitle}/Settings/Gifs`}>Gifs</NavLink></li>
+                            <li><NavLink to={`${this.state.currentTitle}/Settings/Bananas`}>Bananas</NavLink></li>
                         </ul>
                     </li>
                     <li><NavLink to="/OtherProjects">Other Projects</NavLink></li>

@@ -7,20 +7,19 @@ class Main extends Component {
     state = {
         gifs: [
             'CgADAQADJwADjj5JRQ7K3IDKCYJ_FgQ',
-            'CgADAQADJwADjj5JRQ7K3IDKCYJ_FgQ',
         ],
         isLoadingGIFs: true,
         isLoading: true
     }
 
     getGifs = async (gifs) => {
-       let listPromises = gifs.map(async (id) => {
+       let listPromises = gifs.map(async (id, index) => {
                 let link;
                 let tag;
                 await getFile(id)
                 .then(res => link = res.link)
 
-                tag = <video className={styles.video}loop="loop" src={link} autoPlay="autoplay"></video>
+                tag = <video key={index} className={styles.video}loop="loop" src={link} autoPlay="autoplay"></video>
 
                 return tag;
             })
@@ -29,7 +28,6 @@ class Main extends Component {
 
     componentDidMount() {
         this.getGifs(this.state.gifs)
-        .then(res=>{console.log(res); return res})
         .then(res => this.setState({isLoadingGIFs: false, gifs: res}))
     }
 
