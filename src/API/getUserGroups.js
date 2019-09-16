@@ -12,7 +12,7 @@ const getUserGroups = () => {
                 telegramButton.setAttribute('data-telegram-login', 'LyAdminBot')
                 telegramButton.setAttribute('data-size', 'large')
                 telegramButton.setAttribute('data-radius', '20')
-                telegramButton.setAttribute('data-auth-url', 'admin.lyo.su')
+                telegramButton.setAttribute('data-auth-url', 'localhost:3000')
                 document.getElementById('authButton').appendChild(telegramButton)
 
                 return { isLoading: false }

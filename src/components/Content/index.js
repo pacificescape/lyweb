@@ -7,14 +7,28 @@ import Main from './Main/';
 
 class Content extends Component {
 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+        currentGroup: this.props.currentGroup
+    }
+  }
+
     componentDidMount() {
-        let data = this.props.store.getState()
-        debugger
-        console.log(data)
+        console.log('Content did mount')
+        setTimeout(() => {console.log(this.props.store.getState())}, 3000)
+        this.setState({
+            currentGroup: this.props.store.getState()
+        })
+    }
+
+    componentDidUpdate() {
+        console.log('Content did update')
     }
 
     render() {
-
+        setTimeout(() => console.log(this.state.currentGroup), 2000)
         return (
             <div style={{ margin: 'auto', textAlign: 'center' }}>
                 <h2>Main content</h2>

@@ -22,13 +22,6 @@ if (url.indexOf('login') !== -1) {
 
 const store = createStore()
 
-console.log(store.getState())
-store.dispatch({
-    type: 'SET_CURRENT',
-
-})
-console.log(store.getState())
-
 
 ReactDOM.render(<BrowserRouter><App url={url} user={data} store={store}/></BrowserRouter>, document.getElementById('root'));
 

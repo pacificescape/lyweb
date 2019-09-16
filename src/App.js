@@ -12,9 +12,12 @@ export default class App extends Component {
     super(props);
 
     this.state = {
+      isError: false,
+      error: {},
       isLoading: true,
       isAuth: false,
       data: {},
+      currentGroup: this.props.store.getState().currentGroup
     }
 
     this.sidebarToggler = this.sidebarToggler.bind(this);
@@ -23,15 +26,16 @@ export default class App extends Component {
   componentDidMount() {
 
     if (this.props.url.indexOf('login') !== -1) {
-      getCookies(this.props.user)
+      getCookies(this.props.url)
         .then(() => {
           getUserGroups()
           .then(res => this.setState(res))
         })
     } else {
       getUserGroups()
-        .then(res => this.setState(res))
-        .then(() => this.getCurrentGroup(this.state.data.groups[0]))
+        .then(res => {this.setState(res); return res})
+        .then((res) => this.getCurrentGroup(res.data.groups[0]))
+        .catch((err) => console.log({isError: true, error: err}))
     }
   }
 
@@ -47,16 +51,13 @@ export default class App extends Component {
     await getGroup(group.id)
     .then((res) => this.props.store.dispatch({
         type: 'SET_CURRENT',
-        newCurrent: res
+        payload: res
     }))
 }
 
-
-
-
   render() {
     //if (this.state.isAuth) return <div>Authentification: {JSON.stringify(this.state.isAuth)}</div>
-    if (this.state.isLoading || !this.state.isAuth) return <Loader />
+    if (this.state.isLoading || !this.state.isAuth) return <Loader isAuth={this.state.isAuth} />
     return (
       <div className="app-wrapper">
         <span className="statusBar">Authentification: {JSON.stringify(this.state.isAuth)}</span>
@@ -68,13 +69,13 @@ export default class App extends Component {
           </div>
         </button>
         <div>
-          <SideMenu store={this.props.store} groups={this.state.data.groups}/>
+          <SideMenu store={this.props.store} getCurrentGroup={this.getCurrentGroup} groups={this.state.data.groups}/>
         </div>
         <div className="main">
           <Header user={this.props.user}/>
           <section className="main-section">
             <div className="cont">
-              <Content store={this.props.store} />
+              <Content store={this.props.store} currentGroup={this.state.currentGroup}  />
             </div>
           </section>
         </div>

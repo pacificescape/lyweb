@@ -1,11 +1,11 @@
-export default (state = {currentGroup: {}}, action) => {
+export default (state = {}, action) => {
     switch (action.type) {
         case 'SET_CURRENT' : {
-            const nextCurrent = action.newCurrent;
-
+            const currentGroup = action.payload;
+// debugger;
             return {
                 ...state,
-                currentGroup: nextCurrent
+                currentGroup
             }
         }
         default: return state

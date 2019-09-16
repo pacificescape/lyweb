@@ -29,6 +29,11 @@ export default class SideMenu extends Component {
     dropdownSettings = React.createRef();
 
     componentDidMount() {
+        console.log('sidebar is mounted')
+        console.log( this.props.store.getState())
+        this.setState({
+            currentTitle: this.props.store.getState().currentGroup.title || 'no chats'
+        })
     }
 
     clearButton = () => {
@@ -49,7 +54,7 @@ export default class SideMenu extends Component {
             <NavLink
                 to={group.title}
                 className={this.state.styles.chatToggle}
-                onClick={(evt) => {debugger; this.setState({currentGroup: this.props.groups[evt.target]})}}
+                onClick={() => {this.props.getCurrentGroup(group)}}
                 key={index}>
                 {group.title}
             </NavLink>
@@ -70,6 +75,7 @@ export default class SideMenu extends Component {
 
     render() {
         let ChatList = this.renderChatList()
+
 
         return (
             <aside className={this.state.styles.sideBar}>

@@ -1,17 +1,9 @@
-export default async (data) => {
-    // href = decodeURIComponent(href)
-    // let authData = ((href) => {
-    //     var hash;
-    //     var myJson = {};
-    //     var hashes = href.slice(href.indexOf('?') + 1).split('&');
-    //     for (var i = 0; i < hashes.length; i++) {
-    //         hash = hashes[i].split('=');
-    //         myJson[hash[0]] = hash[1];
-    //     }
-    //     return myJson;
-    // })(href)
+import url from 'url'
 
-    let authData = data
+export default async (href) => {
+
+    let authData = url.parse(href, true).query
+    delete authData['group_id']
 
     const response = await fetch('/api/authUser', {
         method: `POST`,
