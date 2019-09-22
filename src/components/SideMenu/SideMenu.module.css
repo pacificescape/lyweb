@@ -2,7 +2,7 @@
     overflow-y: auto;
       -webkit-overflow-scrolling:touch;
     background-color: #ffffff;
-    border-right: 1px solid rgba(56,133,100,0.6);
+    border-right: 1px solid rgba(155, 66, 116, 0.7);;
     position: fixed;
     width: 300px;
     height: 100%;
@@ -46,9 +46,9 @@
     width: inherit;
   }
 
-  .dropdownChats:hover + .chatsList {
+  /* .dropdownChats:hover + .chatsList {
     display: block;
-  }
+  } */
 
   .chatsList {
     display: none;
@@ -65,11 +65,11 @@
 
   }
 
-  .chatsList:hover {
+  /* .chatsList:hover {
     display: block;
-  }
+  } */
 
-  .chatsList a{
+  .chatsList a {
     color: black;
     padding: 8px 8px;
     text-decoration: none;
@@ -92,7 +92,7 @@
 
   .search {
     margin: 10px 10px 20px 10px;
-    border-bottom: 1px solid rgba(56,133,100,0.4);
+    border-bottom: 1px solid rgba(155, 66, 116, 0.7);
 }
 
 aside ul {

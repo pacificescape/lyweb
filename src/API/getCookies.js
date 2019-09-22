@@ -3,7 +3,7 @@ import url from 'url'
 export default async (href) => {
 
     let authData = url.parse(href, true).query
-    delete authData['group_id']
+    delete authData.group_id
 
     const response = await fetch('/api/authUser', {
         method: `POST`,
