@@ -15,7 +15,6 @@ export default class SideMenu extends Component {
             search: '',
             groups: this.props.groups,
             currentTitle: 'Current Chat',
-            currentGroup: {},
             clearButtonDisplay: 'none',
             isHoveringChatList: false,
         }
@@ -35,11 +34,18 @@ export default class SideMenu extends Component {
     componentDidMount() {
         console.log('sidebar is mounted')
         this.setState({
-            currentTitle: this.props.store.getState().currentGroup.title || 'No chat'
+            currentGroup: this.props.currentGroup
         })
-        this.props.store.subscribe(() => this.setState({currentGroup: this.props.store.getState().currentGroup}))
         console.log('SideMenu: ')
         console.log(this.state.currentGroup )
+    }
+
+    componentWillReceiveProps(nextProps){
+    console.log(nextProps)
+    let currentGroup = nextProps.currentGroup
+    let currentTitle = currentGroup.info.title
+    this.setState({currentGroup, currentTitle})
+
     }
 
     componentDidUpdate() {
@@ -108,7 +114,6 @@ export default class SideMenu extends Component {
 
     render() {
         let ChatList =  this.renderChatList()
-        // let box = this.props.store.getState()
         let title = this.state.currentTitle // ((box) => { if (box.currentGroup.currentGroup) return box.currentGroup.currentGroup.result.info.title; else return 'wait'})(box)
 
         return (

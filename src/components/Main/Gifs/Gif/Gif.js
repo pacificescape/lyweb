@@ -7,15 +7,13 @@ export default class Gif extends Component {
         return (
             <div>
                 <video
-                loop
-                muted='muted'
-                // playsInline='playsinline'
-                // loop
-                // muted
-                // controls
-                autoPlay='autoplay'
+                playsInline
+                autoPlay={true}
+                style={{borderRadius: "10px"}}
                 preload="auto"
-                // autoPlay="autoplay"
+                loop = {true}
+                muted = {true}
+                controls = {false}
                 src={'/file/' + id}
                 className={styles.video}
                 type='video/mp4'

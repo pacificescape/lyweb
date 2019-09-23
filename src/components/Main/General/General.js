@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styles from './General.module.css';
+// import styles from './General.module.css';
 
 class General extends Component {
 
@@ -34,8 +34,8 @@ class General extends Component {
             <div>
                 {this.props.component()}
             </div>
-    )
-}
+        )
+    }
 }
 
 export default General;

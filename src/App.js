@@ -38,6 +38,12 @@ export default class App extends Component {
         .then((res) => this.getCurrentGroup(res.data.groups[0]))
         .catch((err) => console.log({isError: true, error: err}))
     }
+
+    this.props.store.subscribe(() => {
+      let store = this.props.store.getState()
+      this.setState({currentGroup: store.currentGroup})
+      console.log(store)
+    })
   }
 
   sidebarToggler = () => {
@@ -54,7 +60,7 @@ export default class App extends Component {
         type: 'SET_CURRENT',
         payload: res
     }))
-    .then((res)=> this.setState({currentGroup: res.payload.result }))
+    //.then((res)=> this.setState({currentGroup: res.payload.result })) // то же что и store.subscribe()
 }
 
   getGifs = () => {
@@ -73,7 +79,7 @@ export default class App extends Component {
           </div>
         </button>
         <div>
-          <SideMenu store={this.props.store} getCurrentGroup={this.getCurrentGroup} groups={this.state.data.groups}/>
+          <SideMenu currentGroup={this.state.currentGroup} getCurrentGroup={this.getCurrentGroup} groups={this.state.data.groups}/>
         </div>
         <div className="main">
           <Header user={this.props.user}/>
